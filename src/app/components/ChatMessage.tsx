@@ -38,7 +38,7 @@ const EmptyState = () => (
       Welcome to Your Career Coach
     </h3>
     <p className="text-muted-foreground max-w-md">
-      I'm here to help guide your career journey. Ask me about career paths,
+      I&apos;m here to help guide your career journey. Ask me about career paths,
       skill development, interview preparation, or any career-related questions.
     </p>
   </div>

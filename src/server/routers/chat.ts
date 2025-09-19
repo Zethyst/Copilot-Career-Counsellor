@@ -213,7 +213,7 @@ export const chatRouter = createTRPCRouter({
           select: { title: true, _count: { select: { messages: true } } },
         });
 
-        let updateData: any = { updatedAt: new Date() };
+        const updateData: any = { updatedAt: new Date() };
         
         // Auto-generate title for new conversations
         if (session && (session.title === 'New Conversation' || session.title === 'New Chat') && session._count.messages <= 5) {
