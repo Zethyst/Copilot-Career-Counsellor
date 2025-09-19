@@ -55,8 +55,8 @@ any time with persistent message history.
 
 ## 📌 Screenshots:
 
-![home](/img/Home.png)
-![login](/img/Report.png)
+![home](/img/home.png)
+![login](/img/login.png)
 
 ## 🚀 Getting Started:
 
@@ -72,7 +72,7 @@ Follow these steps to run the Next.js project on your local machine:
 1.  **Clone the Repository:**
 
     ```sh
-    git clone https://github.com/Zethyst/.git
+    git clone https://github.com/Zethyst/Copilot-Career-Counsellor.git
     cd
     ```
 
