@@ -1,13 +1,13 @@
-import type { Metadata } from 'next';
-import { Inter } from 'next/font/google';
-import './globals.css';
-import Providers from './providers';
+import type { Metadata } from "next";
+import { Inter } from "next/font/google";
+import "./globals.css";
+import Providers from "./providers";
 
-const inter = Inter({ subsets: ['latin'] });
+const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: 'Career Co-Pilot',
-  description: 'Your personal AI-powered career guidance assistant',
+  title: "Career Co-Pilot",
+  description: "Your personal AI-powered career guidance assistant",
 };
 
 export default function RootLayout({
@@ -17,10 +17,12 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
+      <head>
+        <meta name="image" content="/login.png" />
+        <meta name="whatsapp:image" content="/login.png" />
+      </head>
       <body className={inter.className}>
-        <Providers>
-          {children}
-        </Providers>
+        <Providers>{children}</Providers>
       </body>
     </html>
   );

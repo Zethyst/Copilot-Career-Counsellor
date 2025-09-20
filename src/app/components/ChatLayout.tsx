@@ -15,7 +15,7 @@ import { cn } from "@/lib/utils";
 
 export function ChatLayout() {
   const { userId, login, logout, isLoading: userLoading } = useUser();
-  const { sessions, createSession, refreshSessions, isCreating } =
+  const { sessions, createSession, refreshSessions, isCreating, sessionsLoading } =
     useChatSessions(userId);
   const [currentSessionId, setCurrentSessionId] = useState<string | null>(null);
   const [isInitialized, setIsInitialized] = useState(false);
@@ -236,6 +236,7 @@ export function ChatLayout() {
           onLogout={handleLogout}
           currentSessionId={currentSessionId}
           isCreating={isCreating}
+          sessionsLoading={sessionsLoading}
         />
       </div>
 
@@ -254,6 +255,7 @@ export function ChatLayout() {
           onLogout={handleLogout}
           currentSessionId={currentSessionId}
           isCreating={isCreating}
+          sessionsLoading={sessionsLoading}
           isMobile={true}
           onClose={() => setIsSidebarOpen(false)}
         />

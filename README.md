@@ -7,7 +7,7 @@ are saved with proper context. Users can revisit and continue conversations at
 any time with persistent message history.
 </p>
 
-[Visit Now]() 🚀
+[Visit Now](https://copilot-career-counsellor.vercel.app) 🚀
 
 ## 🖥️ Tech Stack
 
@@ -81,7 +81,7 @@ Follow these steps to run the Next.js project on your local machine:
     Frontend using npm:
 
     ```sh
-    npm install
+    npm install --legacy-peer-deps
     ```
 
 3.  **Run the Development Server:**

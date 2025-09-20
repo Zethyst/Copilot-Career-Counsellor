@@ -2,6 +2,7 @@
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { Button } from "@/components/ui/button";
 import { Avatar, AvatarFallback } from "@/components/ui/avatar";
+import { Skeleton } from "@/components/ui/skeleton";
 import { MessageSquare, Plus, User, LogOut, X, Briefcase } from "lucide-react";
 import { cn } from "@/lib/utils";
 
@@ -23,6 +24,7 @@ interface ChatSidebarProps {
   onLogout: () => void;
   currentSessionId: string | null;
   isCreating?: boolean;
+  sessionsLoading?: boolean;
   isMobile?: boolean;
   onClose?: () => void;
 }
@@ -34,6 +36,7 @@ export function ChatSidebar({
   onLogout,
   currentSessionId,
   isCreating = false,
+  sessionsLoading = false,
   isMobile = false,
   onClose,
 }: ChatSidebarProps) {
@@ -64,6 +67,20 @@ export function ChatSidebar({
       ? words.slice(0, wordLimit).join(" ") + "..."
       : text;
   }
+
+  // Skeleton component for loading sessions
+  const SessionSkeleton = () => (
+    <div className="w-full rounded-lg p-3 space-y-2">
+      <div className="flex items-start gap-2">
+        <Skeleton className="h-4 w-4 mt-0.5 flex-shrink-0 bg-gray-200" />
+        <div className="flex-1 min-w-0 space-y-2">
+          <Skeleton className="h-4 w-3/4 bg-gray-200" />
+          <Skeleton className="h-3 w-full bg-gray-200" />
+          <Skeleton className="h-3 w-1/2 bg-gray-200" />
+        </div>
+      </div>
+    </div>
+  );
   return (
     <div
       className={cn(
@@ -111,7 +128,14 @@ export function ChatSidebar({
       {/* Chat Sessions */}
       <ScrollArea className="flex-1 max-h-[calc(100vh-205px)] relative">
         <div className="p-4 pr-6 space-y-2">
-          {sessions.length === 0 ? (
+          {sessionsLoading ? (
+            // Show skeleton loading animations
+            <>
+              <SessionSkeleton />
+              <SessionSkeleton />
+              <SessionSkeleton />
+            </>
+          ) : sessions.length === 0 ? (
             <div className="p-4 text-center text-sidebar-foreground/60">
               <MessageSquare className="h-8 w-8 mx-auto mb-2 opacity-50" />
               <p className="text-sm">No conversations yet</p>

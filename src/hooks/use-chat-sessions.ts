@@ -12,6 +12,8 @@ export function useChatSessions(userId: string | null) {
     hasNextPage,
     isFetchingNextPage,
     refetch: refetchSessions,
+    isLoading: sessionsLoading,
+    isFetching: sessionsFetching,
   } = trpc.chat.getSessions.useInfiniteQuery(
     {
       userId: userId!,
@@ -85,6 +87,7 @@ export function useChatSessions(userId: string | null) {
     isCreating: createSessionMutation.isPending,
     isUpdating: updateSessionTitleMutation.isPending,
     isDeleting: deleteSessionMutation.isPending,
+    sessionsLoading: sessionsLoading || sessionsFetching,
     hasNextPage,
     fetchNextPage,
     isFetchingNextPage,

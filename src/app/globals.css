@@ -132,7 +132,7 @@
 }
 
 .animate-orb {
-  animation: orb 2s ease-in-out infinite;
+  animation: orb 8s ease-in-out infinite;
 }
 
 .animation-delay-2000 {

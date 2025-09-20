@@ -347,15 +347,16 @@ export function ChatMessages({
   messagesLoading,
   className,
 }: ChatMessagesProps) {
-  const [bufferLoading, setBufferLoading] = useState(true);
+  const [hasInitiallyLoaded, setHasInitiallyLoaded] = useState(false);
   const scrollAreaRef = useRef<HTMLDivElement>(null);
   const messagesEndRef = useRef<HTMLDivElement>(null);
 
+  // Track when we've initially loaded messages
   useEffect(() => {
-    setTimeout(() => {
-      setBufferLoading(false)
-    }, 1000);
-  }, [])
+    if (messages.length > 0 && !hasInitiallyLoaded) {
+      setHasInitiallyLoaded(true);
+    }
+  }, [messages.length, hasInitiallyLoaded]);
   
   // Auto-scroll to bottom when new messages arrive
   useEffect(() => {
@@ -364,15 +365,18 @@ export function ChatMessages({
     }
   }, [messages, isLoading]);
 
+  // Show loading spinner only on initial load when we have no messages yet
+  const showInitialLoading = messagesLoading && !hasInitiallyLoaded && messages.length === 0;
+
   return (
     <ScrollArea
       ref={scrollAreaRef}
       className={cn("flex-1 p-6 max-h-[calc(100vh-135px)]", className)}
     >
       <div className="max-w-3xl mx-auto space-y-6">
-        {messagesLoading || bufferLoading ? (
+        {showInitialLoading ? (
           <LoadingSpinner />
-        ) :  messages.length === 0  ? (
+        ) : messages.length === 0 ? (
           <EmptyState />
         ) : (
           <>
