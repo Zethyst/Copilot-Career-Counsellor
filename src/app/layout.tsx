@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
+import { ThemeProvider } from "next-themes";
 import "./globals.css";
 import Providers from "./providers";
 
@@ -16,13 +17,21 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
+    <html>
       <head>
         <meta name="image" content="/login.png" />
         <meta name="whatsapp:image" content="/login.png" />
       </head>
       <body className={inter.className}>
-        <Providers>{children}</Providers>
+        <Providers>
+          <ThemeProvider
+            attribute="class" 
+            defaultTheme="system" 
+            enableSystem
+          >
+            {children}
+          </ThemeProvider>
+        </Providers>
       </body>
     </html>
   );

@@ -5,6 +5,7 @@ import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 import { Skeleton } from "@/components/ui/skeleton";
 import { MessageSquare, Plus, User, LogOut, X, Briefcase } from "lucide-react";
 import { cn } from "@/lib/utils";
+import ThemeToggle from "./ThemeToggle";
 
 interface ChatSession {
   id: string;
@@ -91,14 +92,19 @@ export function ChatSidebar({
       {/* Header */}
       <div className="p-4 border-b border-sidebar-border">
         <div className="flex items-center justify-between">
-          <div className="flex items-center gap-2">
-            <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-[linear-gradient(to_bottom_right,#000000,#4b5563)]">
+          <div className="flex items-center justify-between w-full gap-2">
+            <div
+              className="flex h-10 w-10 items-center justify-center rounded-lg
+              bg-[linear-gradient(to_bottom_right,#000000,#4b5563)]
+              dark:bg-[linear-gradient(to_bottom_right,#1f2937,#000000)]"
+            >
               <Briefcase className="h-5 w-5 text-white" />
             </div>
 
             <h1 className="text-lg font-semibold text-sidebar-foreground">
               Career Co-Pilot
             </h1>
+            <ThemeToggle />
           </div>
           {isMobile && onClose && (
             <Button
@@ -174,7 +180,6 @@ export function ChatSidebar({
         </div>
 
         {/* Right side white masking shadow */}
-        <div className="absolute top-0 right-0 bottom-0 w-4 bg-gradient-to-l from-white/80 via-white/40 to-transparent pointer-events-none" />
       </ScrollArea>
 
       {/* User Section */}

@@ -116,8 +116,9 @@ export function ChatLayout() {
 
         <Card className="w-full max-w-md mx-4">
           <CardHeader className="text-center">
-            <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-[linear-gradient(to_bottom_right,#000000,#4b5563)] mx-auto mb-4">
-              <Briefcase className="h-6 w-6 text-primary-foreground" />
+            <div className="flex h-12 w-12 items-center justify-center rounded-lg    text-white          bg-[linear-gradient(to_bottom_right,#000000,#4b5563)]
+              dark:bg-[linear-gradient(to_bottom_right,#1f2937,#000000)] mx-auto mb-4">
+              <Briefcase className="h-6 w-6" />
             </div>
             <CardTitle className="text-2xl font-bold">
               AI Career Co-Pilot
@@ -138,6 +139,7 @@ export function ChatLayout() {
                   onChange={(e) => setEmail(e.target.value)}
                   placeholder="your.email@example.com"
                   required
+                  className="border-none outline-none mt-1"
                 />
               </div>
               <div className="space-y-2">
@@ -148,6 +150,7 @@ export function ChatLayout() {
                   value={name}
                   onChange={(e) => setName(e.target.value)}
                   placeholder="Your Name"
+                   className="border-none outline-none mt-1"
                 />
               </div>
               <Button
