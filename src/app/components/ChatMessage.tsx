@@ -31,7 +31,7 @@ const LoadingSpinner = () => (
 
 const EmptyState = () => (
   <div className="flex flex-col items-center justify-center h-[60vh] text-center">
-    <div className="flex h-16 w-16 items-center justify-center rounded-full bg-gradient-primary mb-4">
+    <div className="flex h-16 w-16 items-center justify-center rounded-full bg-primary mb-4">
       <Bot className="h-8 w-8 text-primary-foreground" />
     </div>
     <h3 className="text-lg font-semibold text-foreground mb-2">
